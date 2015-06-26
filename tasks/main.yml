@@ -1,0 +1,11 @@
+---
+- name: PhantomJS | Download
+  get_url: url={{ phantomjs_url }}
+           dest=/var/tmp/{{ phantomjs }}.tar.bz2
+
+- name: PhantomJS | Untar
+  shell: chdir=/var/tmp tar xjf {{ phantomjs }}.tar.bz2 creates=/var/tmp/{{ phantomjs }}
+
+- name: PhantomJS | Symlink executable
+  file: dest=/usr/bin/phantomjs src=/var/tmp/{{ phantomjs }}/bin/phantomjs state=link
+  sudo: yes

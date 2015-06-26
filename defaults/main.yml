@@ -1,0 +1,2 @@
+phantomjs: 'phantomjs-1.9.7-linux-x86_64'
+phantomjs_url: 'https://bitbucket.org/ariya/phantomjs/downloads/{{ phantomjs }}.tar.bz2'
