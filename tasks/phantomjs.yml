@@ -1,0 +1,10 @@
+- name: PhantomJS | Download
+  get_url: url={{ phantomjs_url }}
+           dest=/var/tmp/{{ phantomjs_archive }}
+
+- name: PhantomJS | Unarchive
+  unarchive: src=/var/tmp/{{ phantomjs_archive }} dest=/var/tmp creates=/var/tmp/{{ phantomjs_bin }} copy=no
+
+- name: PhantomJS | Symlink executable
+  file: dest=/usr/bin/phantomjs src=/var/tmp/{{ phantomjs_bin }} state=link
+  sudo: yes

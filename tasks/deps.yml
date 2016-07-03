@@ -1,0 +1,3 @@
+- name: PhantomJS | Install dependencies 
+  sudo: yes
+  action: apt pkg=libfontconfig state=installed
